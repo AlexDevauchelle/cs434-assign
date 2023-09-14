@@ -30,9 +30,8 @@ object Main {
     def recBalance(chars: List[Char], x: Int): Boolean = {
       if (x < 0) return false
       if (chars.isEmpty) return x==0
-      val char = chars.head
-      if (char == '(') recBalance(chars.tail,x + 1)
-      else if (char == ')') recBalance(chars.tail,x - 1)
+      if (chars.head == '(') recBalance(chars.tail,x + 1)
+      else if (chars.head == ')') recBalance(chars.tail,x - 1)
       else recBalance(chars.tail,x)
     }
     recBalance(chars,0)
