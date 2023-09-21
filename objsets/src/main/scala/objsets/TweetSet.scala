@@ -118,7 +118,7 @@ class Empty extends TweetSet {
 
   override def union(that: TweetSet): TweetSet = that
 
-  override def mostRetweeted: Tweet = null
+  override def mostRetweeted: Tweet = throw new java.util.NoSuchElementException
 
   override def descendingByRetweet: TweetList = Nil
 
@@ -152,10 +152,16 @@ class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet {
   override def union(that: TweetSet): TweetSet = right.union(left.union(that.incl(elem)))
 
   override def mostRetweeted: Tweet = {
-    val maxOfLeftRight = left.union(right).mostRetweeted
-    if (maxOfLeftRight==null) elem
-    else if (maxOfLeftRight.retweets>elem.retweets) maxOfLeftRight
-    else elem
+    try {
+      val maxOfLeftRight = left.union(right).mostRetweeted
+      if (maxOfLeftRight.retweets > elem.retweets) maxOfLeftRight
+      else elem
+    }
+    catch {
+      case e: java.util.NoSuchElementException => elem
+    }
+
+
   }
 
   /**
