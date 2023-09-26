@@ -1,0 +1,40 @@
+# Fichiers de compilation Scala
+target/
+submission/
+recitations/
+project/
+.project
+.classpath
+.cache
+
+# Fichiers de dépendances
+lib_managed/
+project/boot/
+ivy-report/
+lib/
+
+# Fichiers de logs
+*.log
+
+# Fichiers de configuration IntelliJ IDEA
+.idea/
+
+# Fichiers d'exécution Java
+hs_err_pid*
+
+# Fichiers de sauvegarde de l'éditeur
+*~
+
+# Fichiers de sortie de l'IDE
+out/
+
+# Fichiers de configuration système
+.vscode/
+
+.settings/
+
+*.class
+*.log
+*.jar
+*.txt
+
